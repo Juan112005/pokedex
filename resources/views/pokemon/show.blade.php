@@ -3,7 +3,7 @@
 @section('content')
     <div class="container mt-4">
 
-        <a href="{{ url('home') }}" class="btn btn-primary mb-4">Ver todos los Pokémon</a>
+        <a href="{{ url('home') }}" style="margin-left: 939px" class="btn btn-primary mb-4">Ver todos los Pokémon</a>
 
         <div class="card">
             <div class="card-header">
@@ -47,4 +47,4 @@
             </div>
         </div>
     </div>
-@endsection
+@stop

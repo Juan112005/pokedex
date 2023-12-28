@@ -1,36 +1,53 @@
 @extends('layouts.app')
 
 @section('content')
+
+
     <div class="container">
-        <h1>Lista de pokemones</h1>
-            <div class="row">
+        <h1>Lista de Pokémon</h1>
+
+        <div class="row">
             @foreach ($pokemons as $pokemon)
-                <div class="col-md-4 mb-4">
-                    <div class="card pokemon-card text-center" data-url="{{ url("/pokemon/{$pokemon['name']}") }}">
-                        <div class="card-body d-flex flex-column justify-content-center">
-                            <h4 class="card-title">{{ $pokemon['name'] }}</h4>
+                <div class="col-md-4">
+                    <div class="card">
+                        <a href="{{ url("/pokemon/{$pokemon['name']}") }}" class="card-body text-center">
+                            <h5 class="card-title">{{ ucfirst($pokemon['name']) }}</h5>
+                        </a>
                     </div>
                 </div>
-                </div>
-                @endforeach
+            @endforeach
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <script>
-        $(document).ready(function () {
-        $('.pokemon-card').click(function () {
-                window.location.href = $(this).data('url');
-            });
+<style>
 
-            $('.pokemon-card').hover(
-                function () {
-                    $(this).css('background-color', 'blue');
-                },
-                function () {
-                    $(this).css('background-color', '');
-                }
-            );
-        });
-    </script>
+    .card {
+        margin-bottom: 20px;
+        border: none;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .card:hover{
+        transform: scale(1.05);
+    }
+
+    .card a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s, text-decoration 0.3s;
+}
+
+.card a:hover {
+    text-decoration: underline;
+    color: blue;
+}
+
+    h1 {
+        text-align: center;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        margin-bottom: 30px;
+    }
+
+</style>
+
 @stop
